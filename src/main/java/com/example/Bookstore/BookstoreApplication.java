@@ -8,6 +8,8 @@ import com.example.Bookstore.domain.Book;
 import com.example.Bookstore.domain.BookRepository;
 import com.example.Bookstore.domain.Category;
 import com.example.Bookstore.domain.CategoryRepository;
+import com.example.Bookstore.domain.User;
+import com.example.Bookstore.domain.UserRepository;
 
 
 
@@ -19,7 +21,7 @@ public class BookstoreApplication {
 		SpringApplication.run(BookstoreApplication.class, args);		
 	}
 	@Bean
-	public CommandLineRunner bookDemo(CategoryRepository kategoria, BookRepository kirja) {
+	public CommandLineRunner bookDemo(CategoryRepository kategoria, BookRepository kirja, UserRepository kayttaja) {
 		return (args) -> {
 			
 			kategoria.save(new Category("Kauhu"));
@@ -30,7 +32,10 @@ public class BookstoreApplication {
 			kirja.save(new Book("Douglas", "Adams", "Linnunradan käsikirja liftareille", "9789510218440", "1979", kategoria.findByName("Scifi").get(0)));
 			kirja.save(new Book("Juha-Matti", "Aho", "Javascript-syventävä", "666-666", "2021", kategoria.findByName("Kauhu").get(0)));
 			
-			
+			User user1 = new User("user", "user", "USER");
+			User user2 = new User("admin", "admin", "ADMIN");
+			kayttaja.save(user1);
+			kayttaja.save(user2);
 			
 		};
 	}
