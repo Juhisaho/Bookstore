@@ -32,8 +32,8 @@ public class BookstoreApplication {
 			kirja.save(new Book("Douglas", "Adams", "Linnunradan käsikirja liftareille", "9789510218440", "1979", kategoria.findByName("Scifi").get(0)));
 			kirja.save(new Book("Juha-Matti", "Aho", "Javascript-syventävä", "666-666", "2021", kategoria.findByName("Kauhu").get(0)));
 			
-			User user1 = new User("user", "user", "USER");
-			User user2 = new User("admin", "admin", "ADMIN");
+			User user1 = new User("user", "$2y$12$TRVZcVf2NmrTIguZcxZrh.rg6nlgQxGwdPo7jXipUSXQUgfJHISjC", "USER");
+			User user2 = new User("admin", "$2y$12$JYjBM5joxtP/MGdTqmUSauFlC12DgHCWWGZ65kHYMuahIx7oUKWCu", "ADMIN");
 			kayttaja.save(user1);
 			kayttaja.save(user2);
 			
